@@ -77,3 +77,43 @@ function createCard (array, container) {
     container.innerHTML += containedDiv;
   }
 }
+
+
+//prendo gli elementi del dom tramite variabili
+
+const inputName = document.getElementById("name");
+const inputRole = document.getElementById("role");
+const inputImg = document.getElementById("image");
+const button = document.getElementById("addMemberButton");
+
+//aggiungo l'add event e lì dentro vado a lavorare
+
+button.addEventListener ("click", function () {
+  const valueName = inputName.value;
+  const valueRole = inputRole.value;
+  const valueImg = inputImg.value;
+
+  //verifico che l'utente inserisca un dato
+
+
+  if (valueName.length > 0 && valueRole.length > 0) {
+    const object = {
+      name: valueName,
+      role: valueRole,
+      img: valueImg
+    }
+
+    team.push(object);
+
+
+    //devo ristampare tutto il resto
+
+    const container = document.querySelector('.team-container');
+    createCard(team, container);
+  } else {
+    console.log("Non è stato inserito alcun dato");
+  }
+})
+
+
+console.log(team);
